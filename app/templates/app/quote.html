@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote Generator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #1e1e1e;
+      }
+      .container {
+            max-width: 800px;
+        }
+        
+        .app-container {
+            background-color: var(--code-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #444;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: #363636;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .app-container::after {
+            content: "•••";
+            position: absolute;
+            top: 8px;
+            left: 15px;
+            color: #999;
+            letter-spacing: 2px;
+        }
+        
+        .app-title {
+            color: var(--terminal-green);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        
+        .app-description {
+            color: #8f8f8f;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+      .quote-card {
+        border-left: 4px solid #28a745;
+        transition: transform 0.3s ease;
+      }
+      .quote-card:hover {
+        transform: translateY(-3px);
+      }
+      .main-card {
+        border-radius: 10px;
+      }
+      .btn-generate {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 5px;
+      }
+      .btn-generate:hover {
+        background-color: #218838;
+      }
+      .quote-author {
+        color: #28a745;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class=" text-center mb-5 p-5">
+      <a href="{% url 'quote' %}"><button >Quote Generator</button></a>
+      <a href="{% url 'home' %}"><button >Programmer Joke Generator</button></a>
+    </div>
+    <div class="container">
+     
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="card main-card shadow-sm border-0">
+              <div class="card-body p-4">
+                <h2 class="text-center mb-4">Quote Generator</h2>
+                
+                {% if messages %}
+                <div class="mb-4">
+                  {% for m in messages %}
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{m}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% endif %}
+                
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    name="search"
+                    class="form-control py-2"
+                    placeholder="Enter a keyword (one word for better accuracy)"
+                    aria-label="Search term"
+                  />
+                  <button class="btn btn-generate" type="submit">
+                    Generate Quote
+                  </button>
+                </div>
+                
+                <p class="text-muted small text-center mt-2">
+                  Get inspired with meaningful quotes on your chosen topic
+                </p>
+              </div>
+            </div>
+          </form>
+          
+          <div class="quotes-container mt-5">
+            {% for q in quotes %}
+            <div class="card quote-card shadow-sm mb-4 p-4 bg-white">
+              <blockquote class="blockquote mb-0">
+                <p class="fs-5">"{{ q.content }}"</p>
+                <footer class="blockquote-footer mt-2 quote-author">
+                  {{ q.author }}
+                </footer>
+              </blockquote>
+            </div>
+            {% endfor %}
+        
+
+    </div>
+  </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmer Joke Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --code-bg: #282c34;
+            --terminal-green: #4AF626;
+            --code-purple: #C678DD;
+            --code-blue: #61AFEF;
+            --code-yellow: #E5C07B;
+        }
+        
+        body {
+            background-color: #1e1e1e;
+            font-family: 'Roboto Mono', monospace;
+            color: #f8f8f2;
+            min-height: 100vh;
+            padding-top: 2rem;
+        }
+        
+        .container {
+            max-width: 800px;
+        }
+        
+        .app-container {
+            background-color: var(--code-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #444;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: #363636;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .app-container::after {
+            content: "•••";
+            position: absolute;
+            top: 8px;
+            left: 15px;
+            color: #999;
+            letter-spacing: 2px;
+        }
+        
+        .app-title {
+            color: var(--terminal-green);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        
+        .app-description {
+            color: #8f8f8f;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .joke-display {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            min-height: 150px;
+            border-left: 4px solid var(--code-purple);
+            position: relative;
+        }
+        
+        .joke-display::before {
+            content: ">_";
+            position: absolute;
+            top: 1.5rem;
+            left: -25px;
+            color: var(--code-blue);
+        }
+        
+        .joke-line {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .btn-generate {
+            background-color: var(--code-purple);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .btn-generate:hover {
+            background-color: #b36bc2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(198, 120, 221, 0.4);
+        }
+        
+        .btn-generate:active {
+            transform: translateY(0);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #666;
+            font-size: 0.8rem;
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background: var(--terminal-green);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .prompt {
+            color: var(--code-blue);
+        }
+        
+        .joke-text {
+            color: var(--code-yellow);
+        }
+    </style>
+</head>
+<body>
+        <!-- Mode Selector -->
+        <div class=" text-center mb-5 p-5">
+            <a href="{% url 'quote' %}"><button >Quote Generator</button></a>
+            <button >Programmer Joke Generator</button>
+          </div>
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="app-container">
+                <h1 class="app-title">PROGRAMMER JOKE GENERATOR</h1>
+                <p class="app-description">// Warning: May cause excessive eye-rolling</p>
+                
+                {% if messages %}
+                    {% for m in messages %}
+                        <div class="alert alert-info">
+                            {{ m }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                
+                <div class="joke-display">
+                    {% if line1 %}
+                        <div class="joke-line"><span class="prompt">></span> <span class="joke-text">{{ line1 }}</span></div>
+                        <div class="joke-line"><span class="prompt">></span> <span class="joke-text">{{ line2 }}</span></div>
+                    {% else %}
+                        <div class="joke-line"><span class="prompt">></span> <span class="joke-text">Press the button to generate a joke<span class="typing-cursor"></span></span></div>
+                    {% endif %}
+                </div>
+                
+                <button type="submit" class="btn-generate">GENERATE JOKE</button>
+            </div>
+        </form>
+        
+        <div class="footer">
+            Made with &lt;3 and semicolons
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
